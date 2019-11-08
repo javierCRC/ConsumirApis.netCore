@@ -1,0 +1,17 @@
+body{
+    background-color: #051E2F;
+}
+
+.accordion>.card .card-header {
+    background: #2CA6D0 !important;
+}
+
+.btn-link {
+    font-weight: 800;
+    color: black !important;
+}
+
+.card-body {
+    background: #636363 !important;
+    color: white !important;
+}
