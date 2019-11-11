@@ -294,27 +294,16 @@ $( document ).ready(function() {
   
           switch (p_accion) {
             case "eliminar":
-
-               //alert("Eliminar fue escogido");
-
               f_a_consumirDelete(pApi2,pIdUsuario2);
-
               break;
             case "activar":
-              
                 f_a_consumirActivar(pApi2,pIdUsuario2);
-
               break;
             case "inactivar":
-               
                 f_a_consumirInactivar(pApi2,pIdUsuario2);
-
               break;
-            
           } 
-
         } else if (
-          
           result.dismiss === Swal.DismissReason.cancel
         ) {
           Swal.fire(
@@ -324,7 +313,6 @@ $( document ).ready(function() {
           );
         }
       });
-  
      }
 
      

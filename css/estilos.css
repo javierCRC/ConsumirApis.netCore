@@ -15,3 +15,30 @@ body{
     background: #636363 !important;
     color: white !important;
 }
+
+.txtFooter{
+    color: #2CA8FF;
+}
+
+.imagen {
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.triangulo {
+    background-color: #6C757D;
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    left: 50%;
+    bottom: 0;
+    -webkit-transform: translateX(-50%) translateY(50%) rotate(45deg);
+            transform: translateX(-50%) translateY(50%) rotate(45deg); }
+
+.text-light{
+    color: #563D7C !important;
+}
