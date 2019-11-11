@@ -215,22 +215,27 @@ $( document ).ready(function() {
        }); 
       }
 
-      async function f_a_consumirInactivar(puriApi,pIdUsuario) {
+      async function f_a_consumirInsertar(puriApi,pIdentificacion,pNombre,pUsername,pContrasena,pCorreos) {
     
         var vtoken = document.getElementById("pToken").value;
     
         let header={"Authorization":"Bearer "+vtoken};
         let configuracion={headers : header};
         
-        var vApi = base+puriApi+pIdUsuario;
+        var vApi = base+puriApi;
     
-         console.log(" El api Inactivar es: "+vApi);
+         console.log(" El api Insertar es: "+vApi);
     
-        await axios.put(vApi,{},configuracion).then(response => {
+        await axios.post(vApi,{
+          'usu_identificacion':pIdentificacion,
+          'usu_nombre':pNombre,
+          'usu_username':pUsername,
+          'usu_password':pContrasena,
+          'usu_email':pCorreos
+        },configuracion).then(response => {
               
             f_mensajeProceso("Usuarios",response.data.MensajeProceso,"success"); 
     
-         
             
          }).catch(function(error){
           
@@ -242,6 +247,37 @@ $( document ).ready(function() {
     
          }); 
         }
+
+        async function f_a_consumirApiGetID(puriApi,pIdUsuario) {
+    
+          var vtoken = document.getElementById("pToken").value;
+      
+          let header={"Authorization":"Bearer "+vtoken};
+          let configuracion={headers : header};
+          
+          var vApi = base+puriApi+pIdUsuario;
+      
+           console.log(" El api getID es: "+vApi);
+      
+          await axios.get(vApi,configuracion).then(response => {
+               
+      
+              f_a_rellenarTextAreaJson(response.data,"JSONTextarea3");
+      
+              f_mensajeProceso("Usuarios",response.data.MensajeProceso,"success"); 
+      
+           
+              
+           }).catch(function(error){
+            
+              f_mensajeProceso("Error de consumo de API",
+                              ""+error,
+                              "error");
+                   
+              f_a_limpiarCampo("JSONTextarea3");
+      
+           }); 
+          }
 
   
     function f_MensajeDecision(p_titulo,p_mensaje,p_accion,pApi2,pIdUsuario2){
@@ -420,4 +456,40 @@ $( document ).ready(function() {
   
   
        // ---------------------------------------------------------------------------------------------------Fin metodo Inactivar
-});
+
+        // ---------------------------------------------------------------------------------------------------Inicio metodo Insertar
+        
+        $("#collapseSix").on("click", "#btnConsumirInsert", function(){
+      
+          var vUriApiInsert = document.getElementById("pUriApiInsert").value;
+          var vnombre = document.getElementById("pnombre").value;
+          var videntificacion = document.getElementById("pidentificacion").value;
+          var vnombreUsuario  = document.getElementById("pusername").value;
+          var vCorreo = document.getElementById("pCorreos").value;
+          var vContrasena = document.getElementById("pContrasenas").value;
+
+          var vidUsuarioInac = document.getElementById("pidUsuarioInac").value;
+            console.log("el uri ingresado fue: "+vUriApiInsert);
+            console.log("El nombre es: "+vnombre);
+            console.log("La identificación es: "+videntificacion);
+            console.log("El nombre usuario es: "+vnombreUsuario);
+            console.log("El correo es: "+vCorreo);
+            console.log("La contraseña es: "+vContrasena);
+    
+            f_a_consumirInsertar(vUriApiInsert,videntificacion,vnombre,vnombreUsuario,vContrasena,vCorreo);
+    
+        
+         });
+
+         $("#collapseSix").on("click", "#btnLimpiarInsert", function(){
+          f_a_limpiarCampo("pnombre");
+          f_a_limpiarCampo("pidentificacion");
+          f_a_limpiarCampo("pusername");
+          f_a_limpiarCampo("pCorreos");
+          f_a_limpiarCampo("pContrasenas");
+       
+        });
+
+         // ---------------------------------------------------------------------------------------------------Inicio metodo Insertar
+
+      });
