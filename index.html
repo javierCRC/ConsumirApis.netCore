@@ -11,13 +11,21 @@
     <meta name="author" content="LayoutIt!">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<link rel="stylesheet" href="css/estilos.css">
 
 	
    
 
   </head>
+
+  <header class="py-5 position-relative bg-secondary text-center">
+	<h1 class="font-weight-bold" >Tutorial Front-End</h1>
+	<h4 class="text-white-50" >Patrocinado por Arq.Alex Espejo</h4>
+	<div class="triangulo"></div>
+</header>
+
   <body>
 
     <div class="container py-5">
@@ -31,7 +39,7 @@
 					Buenas saludos cordiales , la idea de este pequeño sitio es hacer el crud completo para consumir apis con .net core 2.2 a nivel web .
 				</p>
 				<p>
-					Utilizaremos: Axios.js sitio web: <a href="https://github.com/axios/axios">https://github.com/axios/axios</a>
+					Utilizaremos Axios.js : <a href="https://github.com/axios/axios">https://github.com/axios/axios</a>
 				</p>
 				<p>
 					Jquery: <a href="https://jquery.com/">https://jquery.com/</a>
@@ -39,6 +47,8 @@
 				<p>
 					Boostrap 4: <a href="https://getbootstrap.com/">https://getbootstrap.com/</a>
 				</p>
+
+				<p><i class="fab fa-html5 fa-3x text-danger"></i> <i class="fab fa-css3-alt fa-3x text-primary"></i> <i class="fab fa-js-square fa-3x text-warning"></i> <i class="fab fa-bootstrap fa-3x text-light"></i></p>
 				
 			</div>
 			<div class="row">
@@ -90,7 +100,7 @@
 		  
 			<div class="accordion" id="accordionExample">
 
-				  <!-- METODO GET -->
+				  <!-- Inicio METODO GET -->
 				  <div class="card">
 						<div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne">
 						  <h2 class="mb-0">
@@ -113,12 +123,302 @@
 								  <button type="button" class="btn btn-outline-danger my-2" id="btnLimpiar2" > <i class="fas fa-trash-alt"></i> Limpiar</button><br>
 						  </div>
 						</div>
-					  </div>
+					  </div>   <!-- Fin METODO GET -->
+
+					  <!-- Inicio METODO GET/ID -->
+					  <div class="card">
+						<div class="card-header" id="headingTwo"  data-toggle="collapse" data-target="#collapseTwo">
+						  <h2 class="mb-0">
+							<button class="btn btn-link collapsed" type="button" aria-expanded="false" aria-controls="collapseTwo">
+								  Metodo Get/ID
+							</button>
+						  </h2>
+						</div>
+						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+						  <div class="card-body">
+								  <label for="exampleInputEmail1"> Parametros de entrada <i class="far fa-hand-point-down"></i></label>
+								  <input type="text" class="form-control" id="pUriApi" placeholder="Ingresa el uri del metodo getid"> <br>
+								  <input type="text" class="form-control" id="pidUsuario" placeholder="Ingresa el id del usuario a consultar">
+
+								  <button type="button" class="btn btn-outline-success my-2" id="btnConsumirGetID" ><i class="fas fa-sort-amount-down-alt"></i> Ejecutar api</button><br><br>
+	  
+								  <label for="JSONTextarea3">Textarea <i class="fas fa-print"></i> imprimir JSON resultado <i class="fas fa-file-code"></i></label>
+								
+								  <textarea class="form-control " id="JSONTextarea3" placeholder="Area de impresión" required rows="6"></textarea>
+								  <button type="button" class="btn btn-outline-danger my-2" id="btnLimpiar3" > <i class="fas fa-trash-alt"></i> Limpiar</button><br>
+						  </div>
+						</div>
+					  </div>  <!-- Fin METODO GET/ID -->
+
+					  <!-- Inicio METODO delete -->
+					  <div class="card">
+						<div class="card-header" id="headingThree"  data-toggle="collapse" data-target="#collapseThree">
+						  <h2 class="mb-0">
+							<button class="btn btn-link collapsed" type="button" aria-expanded="false" aria-controls="collapseThree">
+								  Metodo Delete
+							</button>
+						  </h2>
+						</div>
+						<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+						  <div class="card-body">
+								  <label for="exampleInputEmail1"> Parametros de entrada <i class="far fa-hand-point-down"></i></label>
+								  <input type="text" class="form-control" id="pUriApiDel" placeholder="Ingresa el uri del metodo delete"> <br>
+								  <input type="text" class="form-control" id="pidUsuarioDel" placeholder="Ingresa el id del usuario a eliminar">
+
+								  <button type="button" class="btn btn-outline-success my-2" id="btnConsumirDelete" ><i class="fas fa-sort-amount-down-alt"></i> Ejecutar api</button><br><br>
+			  
+								  <button type="button" class="btn btn-outline-danger my-2" id="btnLimpiar4" > <i class="fas fa-trash-alt"></i> Limpiar</button><br>
+						  </div>
+						</div>
+					  </div>  <!-- Fin METODO DELETE -->
+
+					  
+					  <!-- Inicio METODO Inactivar -->
+					  <div class="card">
+						<div class="card-header" id="headingFor"  data-toggle="collapse" data-target="#collapseFor">
+						  <h2 class="mb-0">
+							<button class="btn btn-link collapsed" type="button" aria-expanded="false" aria-controls="collapseThree">
+								  Metodo Inactivar
+							</button>
+						  </h2>
+						</div>
+						<div id="collapseFor" class="collapse" aria-labelledby="headingFor" data-parent="#accordionExample">
+						  <div class="card-body">
+								  <label for="exampleInputEmail1"> Parametros de entrada <i class="far fa-hand-point-down"></i></label>
+								  <input type="text" class="form-control" id="pUriApiInac" placeholder="Ingresa el uri del api inactivar"> <br>
+								  <input type="text" class="form-control" id="pidUsuarioInac" placeholder="Ingresa el id del usuario a inactivar">
+
+								  <button type="button" class="btn btn-outline-success my-2" id="btnConsumirInac" ><i class="fas fa-sort-amount-down-alt"></i> Ejecutar api</button><br><br>
+			  
+								  <button type="button" class="btn btn-outline-danger my-2" id="btnLimpiarInac" > <i class="fas fa-trash-alt"></i> Limpiar</button><br>
+						  </div>
+						</div>
+					  </div>  <!-- Fin METODO Inactivar -->
+
+					  
+					  <!-- Inicio METODO Activar -->
+					  <div class="card">
+						<div class="card-header" id="headingFive"  data-toggle="collapse" data-target="#collapseFive">
+						  <h2 class="mb-0">
+							<button class="btn btn-link collapsed" type="button" aria-expanded="false" aria-controls="collapseFive">
+								  Metodo Activar
+							</button>
+						  </h2>
+						</div>
+						<div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+						  <div class="card-body">
+								  <label for="exampleInputEmail1"> Parametros de entrada <i class="far fa-hand-point-down"></i></label>
+								  <input type="text" class="form-control" id="pUriApiAct" placeholder="Ingresa el uri del metodo activar"> <br>
+								  <input type="text" class="form-control" id="pidUsuarioAct" placeholder="Ingresa el id del usuario a activar">
+
+								  <button type="button" class="btn btn-outline-success my-2" id="btnConsumirAct" ><i class="fas fa-sort-amount-down-alt"></i> Ejecutar api</button><br><br>
+			  
+								  <button type="button" class="btn btn-outline-danger my-2" id="btnLimpiarAct" > <i class="fas fa-trash-alt"></i> Limpiar</button><br>
+						  </div>
+						</div>
+					  </div>  <!-- Fin METODO Activar -->
+
+
+					  		  <!-- Inicio METODO Insertar -->
+								<div class="card">
+									<div class="card-header" id="headingSix"  data-toggle="collapse" data-target="#collapseSix">
+									  <h2 class="mb-0">
+										<button class="btn btn-link collapsed" type="button" aria-expanded="false" aria-controls="collapseFive">
+											  Metodo Insertar
+										</button>
+									  </h2>
+									</div>
+									<div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+									  <div class="card-body">
+											  <label for="exampleInputEmail1"> Parametros de entrada <i class="far fa-hand-point-down"></i></label>
+											  <input type="text" class="form-control" id="pUriApiInsert" placeholder="Ingresa el uri del metodo insertar"> <br>
+											  
+											  <form action="#" id="formulario-contacto" class="bg-dark my-3 p-3 pt-lg-0 border rounded">
+												<h4 class="font-weight-bold text-center mb-4" >Ingresar un usuario nuevo</h4>
+
+												   <!-- Campo nombre -->
+												   <div class="form-group form-row">
+													<label for="pnombre" class="col-12 col-md-2 col-form-label">Nombre:</label>
+													<div class="input-group col-12 col-md-10">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i class="fas fa-user"></i></span>
+															</div>
+														  <input type="text" name="pnombre" id="pnombre" class="form-control" placeholder="Ingresar nombre completo"> 
+													</div> <!-- fin del input-group -->		
+												</div> <!-- FIN DEL Campo nombre -->
+
+												<!-- Campo identificacion -->
+												<div class="form-group form-row">
+													<label for="pidentificacion" class="col-12 col-md-2 col-form-label">Identificacion:</label>
+													<div class="input-group col-12 col-md-10">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i class="far fa-id-card"></i></span>
+															</div>
+														  <input type="text" name="pidentificacion" id="pidentificacion" class="form-control" placeholder="Ingresar identificación"> 
+													</div> <!-- fin del input-group -->		
+												</div> <!-- FIN DEL Campo identificacion -->
+
+													<!-- Campo username -->
+													<div class="form-group form-row">
+														<label for="pusername" class="col-12 col-md-2 col-form-label">Nombre usuario:</label>
+														<div class="input-group col-12 col-md-10">
+																<div class="input-group-prepend">
+																	<span class="input-group-text"><i class="fas fa-user-friends"></i></span>
+																</div>
+															  <input type="text" name="pusername" id="pusername" class="form-control" placeholder="Ingresar nombre usuario"> 
+														</div> <!-- fin del input-group -->		
+													</div> <!-- FIN DEL Campo username -->
+
+														<!-- Campo correo -->
+														<div class="form-group form-row">
+															<label for="pCorreo" class="col-12 col-md-2 col-form-label">Correo:</label>
+															<div class="input-group col-12 col-md-10">
+																	<div class="input-group-prepend">
+																		<span class="input-group-text"><i class="fas fa-at"></i></span>
+																	</div>
+																  <input type="email" name="pCorreo" id="pCorreos" class="form-control" placeholder="Ingresar correo usuario"> 
+															</div> <!-- fin del input-group -->		
+														</div> <!-- FIN DEL Campo correo -->
+
+															<!-- Campo contraseña -->
+															<div class="form-group form-row">
+																<label for="pContrasenas" class="col-12 col-md-2 col-form-label">Contraseña:</label>
+																<div class="input-group col-12 col-md-10">
+																		<div class="input-group-prepend">
+																			<span class="input-group-text"><i class="fas fa-key"></i></span>
+																		</div>
+																	  <input type="password" name="pContrasenas" id="pContrasenas" class="form-control" placeholder="Ingresar contraseña"> 
+																</div> <!-- fin del input-group -->		
+															</div> <!-- FIN DEL Campo contraseña -->
+
+
+											  </form>
+											  
+											  <button type="button" class="btn btn-outline-success my-2" id="btnConsumirInsert" ><i class="fas fa-sort-amount-down-alt"></i> Ejecutar api</button><br><br>
+						  
+											  <button type="button" class="btn btn-outline-danger my-2" id="btnLimpiarInsert" > <i class="fas fa-trash-alt"></i> Limpiar</button><br>
+									  </div>
+									</div>
+								  </div>  <!-- Fin METODO Insertar -->
+
+
+								    <!-- Inicio METODO Actualizar -->
+								<div class="card">
+									<div class="card-header" id="headingSeven"  data-toggle="collapse" data-target="#collapseSeven">
+									  <h2 class="mb-0">
+										<button class="btn btn-link collapsed" type="button" aria-expanded="false" aria-controls="collapseSeven">
+											  Metodo Actualizar
+										</button>
+									  </h2>
+									</div>
+									<div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+									  <div class="card-body">
+											  <label for="exampleInputEmail1"> Parametros de entrada <i class="far fa-hand-point-down"></i></label>
+											  <input type="text" class="form-control" id="pUriApiActu" placeholder="Ingresa el uri del metodo actualizar"> <br>
+
+											  <input type="text" class="form-control" id="pUserIdentificacion" placeholder="Ingrese la identificación del usuario"> <br>
+											  
+											  <form action="#" id="formulario-actualizar" class="bg-dark my-3 p-3 pt-lg-0 border rounded">
+												<h4 class="font-weight-bold text-center mb-4" >Actualizar un usuario existente</h4>
+
+												  <!-- Campo id usuario -->
+												  <div class="form-group form-row">
+													<label for="pidUsu" class="col-12 col-md-2 col-form-label">Id Usuario:</label>
+													<div class="input-group col-12 col-md-10">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i class="fas fa-user"></i></span>
+															</div>
+														  <input type="text" name="pidUsu" id="pidUsu" class="form-control" disabled> 
+													</div> <!-- fin del input-group -->		
+												</div> <!-- FIN DEL Campo id usuario -->
+
+												   <!-- Campo nombre -->
+												   <div class="form-group form-row">
+													<label for="pnombreActu" class="col-12 col-md-2 col-form-label">Nombre:</label>
+													<div class="input-group col-12 col-md-10">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i class="fas fa-user"></i></span>
+															</div>
+														  <input type="text" name="pnombreActu" id="pnombreActu" class="form-control" placeholder="Ingresar nombre completo"> 
+													</div> <!-- fin del input-group -->		
+												</div> <!-- FIN DEL Campo nombre -->
+
+												<!-- Campo identificacion -->
+												<div class="form-group form-row">
+													<label for="pidentificacionActu" class="col-12 col-md-2 col-form-label">Identificacion:</label>
+													<div class="input-group col-12 col-md-10">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i class="far fa-id-card"></i></span>
+															</div>
+														  <input type="text" name="pidentificacionActu" id="pidentificacionActu" class="form-control" placeholder="Ingresar identificación"> 
+													</div> <!-- fin del input-group -->		
+												</div> <!-- FIN DEL Campo identificacion -->
+
+													<!-- Campo username -->
+													<div class="form-group form-row">
+														<label for="pusernameActu" class="col-12 col-md-2 col-form-label">Nombre usuario:</label>
+														<div class="input-group col-12 col-md-10">
+																<div class="input-group-prepend">
+																	<span class="input-group-text"><i class="fas fa-user-friends"></i></span>
+																</div>
+															  <input type="text" name="pusernameActu" id="pusernameActu" class="form-control" placeholder="Ingresar nombre usuario"> 
+														</div> <!-- fin del input-group -->		
+													</div> <!-- FIN DEL Campo username -->
+
+														<!-- Campo correo -->
+														<div class="form-group form-row">
+															<label for="pCorreosActu" class="col-12 col-md-2 col-form-label">Correo:</label>
+															<div class="input-group col-12 col-md-10">
+																	<div class="input-group-prepend">
+																		<span class="input-group-text"><i class="fas fa-at"></i></span>
+																	</div>
+																  <input type="email" name="pCorreosActu" id="pCorreosActu" class="form-control" placeholder="Ingresar correo usuario"> 
+															</div> <!-- fin del input-group -->		
+														</div> <!-- FIN DEL Campo correo -->
+
+															<!-- Campo contraseña -->
+															<div class="form-group form-row">
+																<label for="pContrasenasActu" class="col-12 col-md-2 col-form-label">Contraseña:</label>
+																<div class="input-group col-12 col-md-10">
+																		<div class="input-group-prepend">
+																			<span class="input-group-text"><i class="fas fa-key"></i></span>
+																		</div>
+																	  <input type="password" name="pContrasenasActu" id="pContrasenasActu" class="form-control" placeholder="SÓLO si desea cambiar la actual ingrese una nueva acá"> 
+																</div> <!-- fin del input-group -->		
+															</div> <!-- FIN DEL Campo contraseña -->
+
+
+											  </form>
+											  
+											  <button type="button" class="btn btn-outline-success my-2" id="btnConsumirActu" ><i class="fas fa-sort-amount-down-alt"></i> Ejecutar api</button><br><br>
+						  
+											  <button type="button" class="btn btn-outline-danger my-2" id="btnLimpiarActu" > <i class="fas fa-trash-alt"></i> Limpiar</button><br>
+									  </div>
+									</div>
+								  </div>  <!-- Fin METODO Actualizar -->
 
 			</div>   <!-- fin del accordion-->
 		</div> <!-- fin del col1-->
 	</div>  <!-- fin del row 2-->
 </div>
+
+<footer class="footer">
+	<div class="container text-center">
+	
+		<div class="container">
+			<div class="row justify-content-center align-content-center">
+				<div class="centrador">
+					<img src="images/LOGO1.svg" class="imagen" alt="Responsive image">
+				</div>
+			</div>
+		</div>
+		<p class="h4 title text-center txtFooter">"La buena ingeniería, resuelve"</p>
+		<div class="text-center text-white">
+			<p>&copy; Ing.Javier Mendoza. All rights reserved.<br>2019</p>
+		</div>
+
+
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -126,7 +426,8 @@
 
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script> -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
 <script src="js/index.js"> </script>
