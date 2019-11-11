@@ -326,6 +326,73 @@ $( document ).ready(function() {
       });
   
      }
+
+     
+     async function f_a_consumirApiGetIDActu(puriApi,pIdUsuario) {
+    
+      var vtoken = document.getElementById("pToken").value;
+  
+      let header={"Authorization":"Bearer "+vtoken};
+      let configuracion={headers : header};
+      
+      var vApi = base+puriApi+pIdUsuario;
+  
+       console.log(" El api getIDActu es: "+vApi);
+  
+      await axios.get(vApi,configuracion).then(response => {
+           
+        $("#pidUsu").val(response.data.Datos["usu_codigo"]);
+        $("#pnombreActu").val(response.data.Datos["usu_nombre"]);
+        $("#pidentificacionActu").val(response.data.Datos["usu_identificacion"]);
+        $("#pusernameActu").val(response.data.Datos["usu_username"]);
+        $("#pCorreosActu").val(response.data.Datos["usu_email"]);    
+  
+       
+          
+       }).catch(function(error){
+        
+          f_mensajeProceso("Error de consumo de API",
+                          ""+error,
+                          "error");
+               
+          f_a_limpiarCampo("JSONTextarea3");
+  
+       }); 
+      }
+
+      async function f_a_consumirActualizar(puriApi,pIdUser,pIdentificacion,pNombre,pUsername,pContrasena,pCorreos) {
+    
+        var vtoken = document.getElementById("pToken").value;
+    
+        let header={"Authorization":"Bearer "+vtoken};
+        let configuracion={headers : header};
+        
+        var vApi = base+puriApi;
+    
+         console.log(" El api Insertar es: "+vApi);
+    
+        await axios.put(vApi,{
+          'usu_codigo':pIdUser,
+          'usu_identificacion':pIdentificacion,
+          'usu_nombre':pNombre,
+          'usu_username':pUsername,
+          'usu_password':pContrasena,
+          'usu_email':pCorreos
+        },configuracion).then(response => {
+              
+            f_mensajeProceso("Usuarios",response.data.MensajeProceso,"success"); 
+    
+            
+         }).catch(function(error){
+          
+            f_mensajeProceso("Error de consumo de API",
+                            ""+error,
+                            "error");
+                 
+            
+    
+         }); 
+        }
    
     /************************************************************************************* Eventos*/
     $("#pcorreo").change(function(){
@@ -468,13 +535,15 @@ $( document ).ready(function() {
           var vCorreo = document.getElementById("pCorreos").value;
           var vContrasena = document.getElementById("pContrasenas").value;
 
-          var vidUsuarioInac = document.getElementById("pidUsuarioInac").value;
-            console.log("el uri ingresado fue: "+vUriApiInsert);
-            console.log("El nombre es: "+vnombre);
-            console.log("La identificación es: "+videntificacion);
-            console.log("El nombre usuario es: "+vnombreUsuario);
-            console.log("El correo es: "+vCorreo);
-            console.log("La contraseña es: "+vContrasena);
+         
+
+         
+            //console.log("el uri ingresado fue: "+vUriApiInsert);
+            //console.log("El nombre es: "+vnombre);
+            //console.log("La identificación es: "+videntificacion);
+            //console.log("El nombre usuario es: "+vnombreUsuario);
+            //console.log("El correo es: "+vCorreo);
+            //console.log("La contraseña es: "+vContrasena);
     
             f_a_consumirInsertar(vUriApiInsert,videntificacion,vnombre,vnombreUsuario,vContrasena,vCorreo);
     
@@ -490,6 +559,71 @@ $( document ).ready(function() {
        
         });
 
-         // ---------------------------------------------------------------------------------------------------Inicio metodo Insertar
+         // ---------------------------------------------------------------------------------------------------Fin del metodo Insertar
+
+        // ---------------------------------------------------------------------------------------------------Inicio del metodo Actualizar
+        
+        $("#pUserIdentificacion").change(function(){
+
+          var vIdentGetActu = document.getElementById("pUserIdentificacion").value;
+          f_a_consumirApiGetIDActu("/api/Usuarios/listarIDAsync/",vIdentGetActu);
+
+          if(!vIdentGetActu){
+            f_a_limpiarCampo("pidUsu");
+            f_a_limpiarCampo("pnombreActu");
+            f_a_limpiarCampo("pidentificacionActu");
+            f_a_limpiarCampo("pusernameActu");
+            f_a_limpiarCampo("pCorreosActu");
+            f_a_limpiarCampo("pContrasenasActu");
+
+          } 
+          
+      });
+
+        
+        $("#collapseSeven").on("click", "#btnConsumirActu", function(){
+      
+          var vUriApiActu = document.getElementById("pUriApiActu").value;
+        
+          var vIdUser = document.getElementById("pidUsu").value;
+          var vnombreA = document.getElementById("pnombreActu").value;
+          var videntificacionA = document.getElementById("pidentificacionActu").value;
+          var vnombreUsuarioA  = document.getElementById("pusernameActu").value;
+          var vCorreoA = document.getElementById("pCorreosActu").value;
+          var vContrasenaA = document.getElementById("pContrasenasActu").value;
+
+          
+            console.log("el uri ingresado fue: "+vUriApiActu);
+    
+            console.log("El nombre es: "+vnombreA);
+            console.log("La identificación es: "+videntificacionA);
+            console.log("El nombre usuario es: "+vnombreUsuarioA);
+            console.log("El correo es: "+vCorreoA);
+            console.log("La contraseña es: "+vContrasenaA);
+            
+            if (!vContrasenaA){
+              vContrasena = null;
+            }
+            
+
+            f_a_consumirActualizar(vUriApiActu,vIdUser,videntificacionA,vnombreA,vnombreUsuarioA,vContrasenaA,vCorreoA);
+           
+    
+        
+         });
+
+         $("#collapseSeven").on("click", "#btnLimpiarActu", function(){
+          f_a_limpiarCampo("pidUsu");
+          f_a_limpiarCampo("pnombreActu");
+          f_a_limpiarCampo("pidentificacionActu");
+          f_a_limpiarCampo("pusernameActu");
+          f_a_limpiarCampo("pCorreosActu");
+          f_a_limpiarCampo("pContrasenasActu");
+       
+        });
+
+
+        
+        // ---------------------------------------------------------------------------------------------------Fin del metodo Actualizar
 
       });

@@ -292,6 +292,102 @@
 									</div>
 								  </div>  <!-- Fin METODO Insertar -->
 
+
+								    <!-- Inicio METODO Actualizar -->
+								<div class="card">
+									<div class="card-header" id="headingSeven"  data-toggle="collapse" data-target="#collapseSeven">
+									  <h2 class="mb-0">
+										<button class="btn btn-link collapsed" type="button" aria-expanded="false" aria-controls="collapseSeven">
+											  Metodo Actualizar
+										</button>
+									  </h2>
+									</div>
+									<div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+									  <div class="card-body">
+											  <label for="exampleInputEmail1"> Parametros de entrada <i class="far fa-hand-point-down"></i></label>
+											  <input type="text" class="form-control" id="pUriApiActu" placeholder="Ingresa el uri del metodo actualizar"> <br>
+
+											  <input type="text" class="form-control" id="pUserIdentificacion" placeholder="Ingrese la identificación del usuario"> <br>
+											  
+											  <form action="#" id="formulario-actualizar" class="bg-dark my-3 p-3 pt-lg-0 border rounded">
+												<h4 class="font-weight-bold text-center mb-4" >Actualizar un usuario existente</h4>
+
+												  <!-- Campo id usuario -->
+												  <div class="form-group form-row">
+													<label for="pidUsu" class="col-12 col-md-2 col-form-label">Id Usuario:</label>
+													<div class="input-group col-12 col-md-10">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i class="fas fa-user"></i></span>
+															</div>
+														  <input type="text" name="pidUsu" id="pidUsu" class="form-control" disabled> 
+													</div> <!-- fin del input-group -->		
+												</div> <!-- FIN DEL Campo id usuario -->
+
+												   <!-- Campo nombre -->
+												   <div class="form-group form-row">
+													<label for="pnombreActu" class="col-12 col-md-2 col-form-label">Nombre:</label>
+													<div class="input-group col-12 col-md-10">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i class="fas fa-user"></i></span>
+															</div>
+														  <input type="text" name="pnombreActu" id="pnombreActu" class="form-control" placeholder="Ingresar nombre completo"> 
+													</div> <!-- fin del input-group -->		
+												</div> <!-- FIN DEL Campo nombre -->
+
+												<!-- Campo identificacion -->
+												<div class="form-group form-row">
+													<label for="pidentificacionActu" class="col-12 col-md-2 col-form-label">Identificacion:</label>
+													<div class="input-group col-12 col-md-10">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i class="far fa-id-card"></i></span>
+															</div>
+														  <input type="text" name="pidentificacionActu" id="pidentificacionActu" class="form-control" placeholder="Ingresar identificación"> 
+													</div> <!-- fin del input-group -->		
+												</div> <!-- FIN DEL Campo identificacion -->
+
+													<!-- Campo username -->
+													<div class="form-group form-row">
+														<label for="pusernameActu" class="col-12 col-md-2 col-form-label">Nombre usuario:</label>
+														<div class="input-group col-12 col-md-10">
+																<div class="input-group-prepend">
+																	<span class="input-group-text"><i class="fas fa-user-friends"></i></span>
+																</div>
+															  <input type="text" name="pusernameActu" id="pusernameActu" class="form-control" placeholder="Ingresar nombre usuario"> 
+														</div> <!-- fin del input-group -->		
+													</div> <!-- FIN DEL Campo username -->
+
+														<!-- Campo correo -->
+														<div class="form-group form-row">
+															<label for="pCorreosActu" class="col-12 col-md-2 col-form-label">Correo:</label>
+															<div class="input-group col-12 col-md-10">
+																	<div class="input-group-prepend">
+																		<span class="input-group-text"><i class="fas fa-at"></i></span>
+																	</div>
+																  <input type="email" name="pCorreosActu" id="pCorreosActu" class="form-control" placeholder="Ingresar correo usuario"> 
+															</div> <!-- fin del input-group -->		
+														</div> <!-- FIN DEL Campo correo -->
+
+															<!-- Campo contraseña -->
+															<div class="form-group form-row">
+																<label for="pContrasenasActu" class="col-12 col-md-2 col-form-label">Contraseña:</label>
+																<div class="input-group col-12 col-md-10">
+																		<div class="input-group-prepend">
+																			<span class="input-group-text"><i class="fas fa-key"></i></span>
+																		</div>
+																	  <input type="password" name="pContrasenasActu" id="pContrasenasActu" class="form-control" placeholder="SÓLO si desea cambiar la actual ingrese una nueva acá"> 
+																</div> <!-- fin del input-group -->		
+															</div> <!-- FIN DEL Campo contraseña -->
+
+
+											  </form>
+											  
+											  <button type="button" class="btn btn-outline-success my-2" id="btnConsumirActu" ><i class="fas fa-sort-amount-down-alt"></i> Ejecutar api</button><br><br>
+						  
+											  <button type="button" class="btn btn-outline-danger my-2" id="btnLimpiarActu" > <i class="fas fa-trash-alt"></i> Limpiar</button><br>
+									  </div>
+									</div>
+								  </div>  <!-- Fin METODO Actualizar -->
+
 			</div>   <!-- fin del accordion-->
 		</div> <!-- fin del col1-->
 	</div>  <!-- fin del row 2-->
